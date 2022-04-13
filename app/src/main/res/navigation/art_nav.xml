@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_initial" >
         <action
             android:id="@+id/action_initialFragment_to_recyclerViewFragment"
-            app:destination="@id/recyclerViewFragment" />
+            app:destination="@id/recyclerViewFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/artDetailsFragment"
@@ -26,6 +30,10 @@
         tools:layout="@layout/fragment_recycler_view" >
         <action
             android:id="@+id/action_recyclerViewFragment_to_artDetailsFragment"
-            app:destination="@id/artDetailsFragment" />
+            app:destination="@id/artDetailsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 </navigation>

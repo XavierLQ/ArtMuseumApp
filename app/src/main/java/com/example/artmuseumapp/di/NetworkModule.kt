@@ -3,32 +3,27 @@ package com.example.artmuseumapp.di
 import com.example.artmuseumapp.rest.ArtAPI
 import com.example.artmuseumapp.rest.ArtRepoImplementation
 import com.example.artmuseumapp.rest.ArtRepository
+import com.example.artmuseumapp.viewmodel.ArtViewModel
 import com.google.gson.Gson
-import dagger.Module
-import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-import javax.inject.Singleton
 
-@Module
-class NetworkModule{
 
-    @Provides
-    @Singleton
+
+val NetworkModule = module{
+
     fun providesGson(): Gson = Gson()
 
-    @Provides
-    @Singleton
     fun providesLoggingInterceptor(): HttpLoggingInterceptor =
         HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
 
-    @Provides
-    @Singleton
     fun providesOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
@@ -37,16 +32,24 @@ class NetworkModule{
             .writeTimeout(30, TimeUnit.SECONDS)
             .build()
 
-    @Provides
-    @Singleton
     fun providesNetworkService(gson: Gson, okHttpClient: OkHttpClient): ArtAPI =
         Retrofit.Builder().baseUrl(ArtAPI.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient).build()
             .create(ArtAPI::class.java)
 
-    @Provides
-    @Singleton
     fun provideArtRepository(artAPI: ArtAPI):ArtRepository =
         ArtRepoImplementation(artAPI)
+
+    single { providesLoggingInterceptor()}
+    single { providesOkHttpClient(get()) }
+    single { providesNetworkService(get(), get()) }
+    single { provideArtRepository(get()) }
+    single { providesGson() }
+
+}
+
+val viewModelModule = module{
+
+    viewModel { ArtViewModel(get())}
 }

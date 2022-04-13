@@ -7,9 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.artmuseumapp.rest.ArtRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class ArtViewModel @Inject constructor(
+class ArtViewModel(
     private val artRepo:ArtRepository
 ): ViewModel() {
 

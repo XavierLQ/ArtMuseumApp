@@ -9,7 +9,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.172" />
         <entry key="app/src/main/res/drawable/ic_mona_lisa_svgrepo_com.xml" value="0.172" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/art_item.xml" value="0.12777777777777777" />
+        <entry key="app/src/main/res/layout/art_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_art_details.xml" value="0.12777777777777777" />
         <entry key="app/src/main/res/layout/fragment_initial.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_recycler_view.xml" value="0.32395833333333335" />

@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import com.example.artmuseumapp.MainActivity
 import com.example.artmuseumapp.R
 import com.example.artmuseumapp.databinding.FragmentArtDetailsBinding
 import com.example.artmuseumapp.databinding.FragmentInitialBinding
