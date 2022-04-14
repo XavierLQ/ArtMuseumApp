@@ -10,7 +10,7 @@ and SHow detail in another fragment.
 
 * GitHub Repo Link: <https://github.com/XavierLQ/ArtMuseumApp>
 * Original API Link (Harvard Art Museum): <https://api.harvardartmuseums.org/>
-* Read Me: <https://github.com/XavierLQ/ArtMuseumApp>
+* Read Me: <https://github.com/XavierLQ/ArtMuseumApp/edit/master/ReadMe.md>
 
 
 
