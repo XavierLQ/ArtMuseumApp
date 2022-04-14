@@ -48,13 +48,13 @@ class ArtAdapter(
             artName.text = artItem.title
             Picasso.get()
                 .load(artItem.images[0].baseimageurl)
-                .resize(80, 80)
+                .resize(500, 500)
                 .into(artImage)
 
             itemView.setOnClickListener{ view ->
                 view.findNavController()
                     .navigate(R.id.action_recyclerViewFragment_to_artDetailsFragment)
-                //clickedArt.OnClickedArt()
+                clickedArt.OnClickedArt(artItem)
             }
 
             // pending add data from livedata

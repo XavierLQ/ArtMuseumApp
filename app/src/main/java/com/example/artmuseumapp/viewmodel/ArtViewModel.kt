@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.artmuseumapp.model.Record
 import com.example.artmuseumapp.rest.ArtRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,6 +16,7 @@ class ArtViewModel(
     private val _artLiveData:MutableLiveData<ArtLoadingState> =
         MutableLiveData(ArtLoadingState.LOADING)
     val artLiveData:LiveData<ArtLoadingState> get() = _artLiveData
+    var fragmentDetail:MutableLiveData<Record> = MutableLiveData()
 
     fun getArtCollection() {
             viewModelScope.launch(Dispatchers.IO) {
@@ -31,6 +33,10 @@ class ArtViewModel(
                 _artLiveData.postValue(ArtLoadingState.ERROR(e))
             }
         }
+    }
+
+    fun getFragmentDetail(record:Record){
+        fragmentDetail = MutableLiveData(record)
     }
 
 

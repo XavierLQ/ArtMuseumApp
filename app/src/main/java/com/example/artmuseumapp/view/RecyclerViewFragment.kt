@@ -18,6 +18,7 @@ import com.example.artmuseumapp.adapter.ClickedArt
 import com.example.artmuseumapp.databinding.FragmentInitialBinding
 import com.example.artmuseumapp.databinding.FragmentRecyclerViewBinding
 import com.example.artmuseumapp.model.Artworks
+import com.example.artmuseumapp.model.Record
 import com.example.artmuseumapp.viewmodel.ArtLoadingState
 import com.example.artmuseumapp.viewmodel.ArtViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -68,9 +69,6 @@ class RecyclerViewFragment : Fragment(), ClickedArt {
                 }
             }
         }
-
-
-
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -85,7 +83,7 @@ class RecyclerViewFragment : Fragment(), ClickedArt {
             InitialFragment()
     }
 
-    override fun OnClickedArt() {
-        TODO("Not yet implemented")
+    override fun OnClickedArt(ArtItem: Record) {
+        viewModel.getFragmentDetail(ArtItem)
     }
 }
